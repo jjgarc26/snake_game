@@ -1,18 +1,25 @@
 import turtle as t
 
 from src.snake import Snake
+from src.screen import Screen
 
-screen = t.Screen()
-screen.setup(width=500, height=500)
-screen.bgcolor('black')
-screen.title('Snake Game')
+screen = Screen()
 
-snake = Snake()
-tail = Snake()
+head = Snake()
+body = Snake()
 
-snake.head(0)
-snake.body(-20)
-tail.body(-40)
+head.body(0)
+body.body(-20)
+screen.left(head)
 
+for i in range(100):
+    head.move(1)
+    position = head.position()
+    body.follow(position[0] - 1, position[1] -1)
+continue_game = 'yes'
 
-screen.exitonclick()
+# while continue_game == 'yes':
+#
+#     pass
+
+screen.exit_screen()
