@@ -19,7 +19,7 @@ class Snake:
     def follow(self, x,y):
         self.snake.setheading(self.snake.towards(x,y))
         self.snake.speed('fast')
-        self.snake.forward(1)
+        self.snake.forward(15)
 
     def position(self):
         x_pos = self.snake.xcor()
@@ -28,6 +28,9 @@ class Snake:
 
     def left(self, degrees):
         self.snake.left(degrees)
+
+    def right(self, degrees):
+        self.snake.right(degrees)
 
 
 # we can use clone to add more blocks

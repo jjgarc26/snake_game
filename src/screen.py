@@ -1,3 +1,4 @@
+import turtle
 import turtle as t
 
 
@@ -8,10 +9,16 @@ class Screen:
         self.screen.bgcolor('black')
         self.screen.title('Snake Game')
 
-    def left(self, turtle):
+    def left(self, turtle_moved):
         def move_left():
-            turtle.left(90)
+            turtle_moved.left(90)
         self.screen.onkey(move_left, 'a')
+        self.screen.listen()
+
+    def right(self, turtle_moved):
+        def move_right():
+            turtle_moved.right(90)
+        self.screen.onkey(move_right, 'd')
         self.screen.listen()
 
     def exit_screen(self):
