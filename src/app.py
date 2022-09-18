@@ -1,35 +1,31 @@
+import time
 import turtle as t
-from food import create_food
-
-from src.snake import Snake
-from src.screen import Screen
+from snake_head import snake_head
+from food import food
 
 # --------------------------- Set screen and snake body ---------------------------
-screen = Screen()
+# --- screen ---
+sc = t.Screen()
+sc.title('Snake Game')
+sc.bgcolor('blue')
+sc.setup(width=600,height=600)
 
-head = Snake()
-body = Snake()
+# --- head ---
+head = snake_head(shape='square', color='black')
+head.goto(0, 0)
+
+
+# --- food ---
+food = food(shape='circle', color='orange')
+food.goto(0, 100)
+food.speed(0)
+
 
 # ------------------------- Set controls for moving snake -----------------------
-screen.left_key(head)
-screen.right_key(head)
 
-head.body(0)
-body.body(-10)
 
 # ----------------------------------- Main game ---------------------------------
-body_coo = [[30, 30], [20, 20]]
-food = create_food(body_coo)
-print(food)
 
-for i in range(1000):
-    head.move(15)
-    position = head.position()
-    body.follow(position[0], position[1])
-continue_game = 'yes'
+# expend snake body
 
-# while continue_game == 'yes':
-#
-#     pass
-
-screen.exit_screen()
+sc.exitonclick()
